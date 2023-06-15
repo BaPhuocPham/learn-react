@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.playerDetailContainer {
+  width: 100%;
+  background-color: #fafafa;
+}
+
+.playerDetailContainer .playerCard {
+  width: 100%;
+  position: relative;
+}
+
+.playerDetailContainer .playerCard .badge {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  max-width: max-content;
+  padding: 0 10px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  background-color: #ff0000;
+}
+
+.playerDetailContainer .playerCard .playerTumb {
+  width: 100%;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+}
+
+.playerDetailContainer .playerCard .playerTumb .imageWrapper {
+  width: 500px;
+}
+
+.playerDetailContainer .playerCard .playerTumb .imageWrapper img {
+  width: 100%;
+  object-position: center;
+  object-fit: fill;
+}
+
+.playerDetailContainer .playerDetails {
+  width: 100%;
+  padding-left: 20px;
+  text-align: left;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.playerDetailContainer .playerDetails h4 {
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.playerDetailContainer .playerDetails .playerPrice {
+  color: #fbc143;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.playerDetailContainer .playerDetails .playerInfo {
+  color: #aca69d;
+  font-size: 16px;
+  margin-top: 20px;
+}
