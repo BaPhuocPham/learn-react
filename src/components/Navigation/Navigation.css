@@ -3,36 +3,17 @@
   padding: 0;
 }
 
-div {
-  width: 100%;
-}
-
-nav {
+.menu {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-evenly;
 }
 
+.menu .brand-logo {
+  left: 10px;
+}
 
-.navBar {
+.nav-wrapper {
   width: 100%;
-  /* background-color: #333333; */
-  padding-left: 20px;
-  display: flex;
-}
-.navBar li {
-  padding: 10px 10px;
-  list-style: none;
-}
-/* .navBar li:hover {
-  background-color: #c2b506;
-} */
-.navBar li a {
-  text-decoration: none;
-  padding: 10px 10px;
-  /* color: white; */
-}
-.navBar li a:hover {
-  background-color: #c2b506!important;
+  background-color: #01579b;
 }

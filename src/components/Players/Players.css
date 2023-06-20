@@ -17,26 +17,26 @@
   box-shadow: 10px 10px 5px #aaaaaa;
 }
 
-.column .card {
+.card {
   width: 100%;
 }
 
-.column .card img {
+img {
   width: 100%;
   height: 250px;
   object-position: center;
   object-fit: cover;
 }
 
-.column .card p {
+p {
   width: 100%;
 }
 
-.column .card .title {
+.title {
   color: #938a81;
 }
 
-.column .card p button {
+p button {
   width: 100%;
   background-color: black;
   color: white;

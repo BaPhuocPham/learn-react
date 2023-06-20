@@ -1,81 +1,66 @@
-import React from "react";
-import './Navigation.css';
-import { useContext } from 'react'
+import React, { useState } from "react";
+import "./Navigation.css";
+import { useContext } from "react";
 import { ThemeContext } from "../ThemeContext";
+import { Navbar, NavItem, Icon } from "react-materialize";
+import { Link } from "react-router-dom";
 
+const pages = [
+  {
+    title: "Home",
+    iconTitle: "HomeIcon",
+  },
+  {
+    title: "About",
+    iconTitle: "InfoOutlinedIcon",
+  },
+  {
+    title: "About",
+    iconTitle: "InfoOutlinedIcon",
+  },
+  {
+    title: "Contact",
+    iconTitle: "ContactsIcon",
+  },
+];
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navigation() {
-  const { theme, toggle, dark } = useContext(ThemeContext)
+  // const { theme, toggle, dark } = useContext(ThemeContext);
   return (
     <div>
-      <nav style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
-        <ul className="navBar">
+      <Navbar
+        className="menu"
+        alignLinks="right"
+        brand={<span className="brand-logo">Player Cards</span>}
+        id="mobile-nav"
+        menuIcon={<Icon>menu</Icon>}
+      >
+        <ul>
           <li>
-            <a 
-              style={{
-                  backgroundColor: theme.backgroundColor,
-                  color: theme.color,
-                  outline: 'none'
-                }}
-              className="active" 
-              href="#home">Home
-            </a>
+            <Link to="/">
+              <Icon left>home</Icon>Home
+            </Link>
           </li>
-          <li>
-            <a 
-              style={{
-                  backgroundColor: theme.backgroundColor,
-                  color: theme.color,
-                  outline: 'none'
-                }}
-                href="#news">News
-            </a>
+          <li to="/about">
+            <Link to="/about">
+              <Icon left>info_outline</Icon>About
+            </Link>
           </li>
-          <li>
-            <a 
-              style={{
-                  backgroundColor: theme.backgroundColor,
-                  color: theme.color,
-                  outline: 'none'
-                }}
-                href="#about">About
-            </a>
+          <li to="/news">
+            <Link to="/news">
+              <Icon left>dvr</Icon>News
+            </Link>
           </li>
-          <li>
-            <a 
-              style={{
-                  backgroundColor: theme.backgroundColor,
-                  color: theme.color,
-                  outline: 'none'
-                }}
-              href="#contact">Contact
-          </a>
+          <li href="/contact">
+            <Link to="/contact">
+              <Icon left>contacts</Icon>Contact
+            </Link>
           </li>
         </ul>
-        <div style={{
-            position: 'relative',
-            display: "flex",
-            justifyContent: 'flex-end',
-            paddingRight: '20px'
-          }}>
-        {/* eslint-disable jsx-a11y/anchor-is-valid */}
-          <a 
-            className='switch-mode' 
-            href='#' onClick={toggle}
-            style={{
-              backgroundColor: theme.backgroundColor,
-              color: theme.color,
-              outline: 'none'
-            }}
-           data-testid="toggle-theme-btn"
-        >
-          Switch Nav to {!dark ? 'Dark' : 'Light'} mode
-         </a>
-         </div>
-
-      </nav>
+      </Navbar>
     </div>
-  )
+  );
 }
 
-export default Navigation
+export default Navigation;

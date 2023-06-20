@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Players.css";
 import { PlayerList } from "../../shared/ListOfPlayers";
+import { Icon, CardTitle, Row, Col, Card, Container } from "react-materialize";
 import { Link } from "react-router-dom";
 
 function Players() {
@@ -13,41 +14,41 @@ function Players() {
   };
 
   return (
-    <div className="container">
-      {PlayerList.map((player) => (
-        <div key={player.id} className="column">
-          <div className="card">
-            <img src={player.img} alt="the player"></img>
-            <h3>{player.name}</h3>
-            <p className="title">{player.club}</p>
-            <Link to={`detail/${player.id}`}>
+    <Container className="container">
+      <Row>
+        {PlayerList.map((player, index) => (
+          <Col className="colPlayer" m={4} s={12}>
+            <Card
+              closeIcon={<Icon>close</Icon>}
+              header={<CardTitle image={player.img} reveal waves="light" />}
+              reveal={<p>{player.info}</p>}
+              revealIcon={<Icon>more_vert</Icon>}
+              title={player.name}
+            >
               <p>
-                <button>Detail</button>
+                <Link to={`detail/${player.id}`}>
+                  <a href="#">Detail</a>
+                </Link>
               </p>
-            </Link>
-            {/* <p>
-              <button onClick={() => toogleOpenPlayerDetail(player)}>
-                Detail
-              </button>
-            </p> */}
+            </Card>
+          </Col>
+        ))}
+        {isOpenDetail ? (
+          <div id="popup" className="overlay">
+            <div className="popup">
+              <img src={player.img} alt="player" />
+              <h2>{player.name}</h2>
+              <a className="close" href="#" onClick={toogleOpenPlayerDetail}>
+                &times;
+              </a>
+              <div className="content">{player.info}</div>
+            </div>
           </div>
-        </div>
-      ))}
-      {isOpenDetail ? (
-        <div id="popup" className="overlay">
-          <div className="popup">
-            <img src={player.img} alt="player" />
-            <h2>{player.name}</h2>
-            <a className="close" href="#" onClick={toogleOpenPlayerDetail}>
-              &times;
-            </a>
-            <div className="content">{player.info}</div>
-          </div>
-        </div>
-      ) : (
-        <div></div>
-      )}
-    </div>
+        ) : (
+          <div></div>
+        )}
+      </Row>
+    </Container>
   );
 }
 
